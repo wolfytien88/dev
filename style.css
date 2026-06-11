@@ -1,18 +1,129 @@
-body { font-family: 'Baloo 2', Arial, sans-serif; display:flex; flex-direction:column; align-items:center; padding:28px; background: linear-gradient(180deg,#fff8f0,#fff4fb); }
-h1 { margin:0 0 12px; color:#ff6b81; text-shadow:0 6px 14px rgba(255,107,129,0.08); font-size:34px; }
-#game { position:relative; }
-canvas { background: linear-gradient(180deg,#fff,#fff8f2); box-shadow:0 10px 30px rgba(255,107,129,0.08); border-radius:14px; display:block; }
-#info { margin-top:10px; font-weight:700; color:#555; background:#fff; padding:8px 12px; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
-#score { color:#ff6b81; }
-/* controls & leaderboard */
-#controls{ display:flex; gap:8px; align-items:center; margin-top:10px; }
-#controls button, #controls select{ background:#fff; border:2px solid #ffd6e0; padding:8px 12px; border-radius:12px; font-weight:700; color:#ff6b81; box-shadow:0 6px 18px rgba(255,107,129,0.06); cursor:pointer; }
-#controls select{ padding:6px 10px; }
-#leaderboard{ position:absolute; right:-160px; top:0; width:140px; background:linear-gradient(180deg,#fff7fb,#fff1f5); border-radius:12px; padding:12px; box-shadow:0 10px 30px rgba(255,107,129,0.06); }
-#leaderboard h2{ margin:0 0 8px; font-size:14px; color:#ff6b81; }
-#leaderboard ol{ margin:0; padding-left:18px; color:#7a466a; }
-#leaderboard li{ margin:4px 0; font-weight:700; }
+/* CYBER VENOM — 賽博毒蛇 */
 
-@media (max-width:700px){
-	#leaderboard{ position:static; margin-top:12px; width:100%; }
+:root {
+  --bg:     #0a0a12;
+  --snake:  #39ff14;
+  --food:   #ff2079;
+  --ui:     #00f0ff;
+  --warn:   #ff6b00;
+  --panel:  rgba(0,240,255,0.04);
+  --border: rgba(0,240,255,0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Share Tech Mono', monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 16px;
+  background: var(--bg);
+  min-height: 100vh;
+}
+
+h1 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 22px;
+  color: var(--snake);
+  text-shadow: 0 0 16px var(--snake), 0 0 36px rgba(57,255,20,0.35);
+  margin-bottom: 16px;
+  letter-spacing: 3px;
+}
+
+#game { position: relative; }
+
+canvas {
+  display: block;
+  border: 1px solid var(--border);
+  box-shadow: 0 0 24px rgba(0,240,255,0.1), 0 0 2px rgba(0,240,255,0.4);
+  border-radius: 2px;
+}
+
+#info {
+  margin-top: 10px;
+  font-family: 'Press Start 2P', monospace;
+  font-size: 10px;
+  color: var(--ui);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 2px;
+  text-align: center;
+  text-shadow: 0 0 8px var(--ui);
+}
+
+#score {
+  color: var(--snake);
+  text-shadow: 0 0 10px var(--snake);
+}
+
+#controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+#controls button,
+#controls select {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 2px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: var(--ui);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  outline: none;
+  transition: background 0.1s, box-shadow 0.1s;
+}
+
+#controls button:hover,
+#controls select:hover {
+  background: rgba(0,240,255,0.1);
+  box-shadow: 0 0 12px rgba(0,240,255,0.28);
+}
+
+#controls select option {
+  background: #0a0a12;
+  color: var(--ui);
+}
+
+#leaderboard {
+  position: absolute;
+  right: -165px;
+  top: 0;
+  width: 148px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  padding: 12px;
+}
+
+#leaderboard h2 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 7px;
+  color: var(--food);
+  text-shadow: 0 0 8px var(--food);
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+#leaderboard ol {
+  padding-left: 16px;
+  color: var(--snake);
+}
+
+#leaderboard li {
+  margin: 5px 0;
+  font-size: 13px;
+  text-shadow: 0 0 6px var(--snake);
+}
+
+@media (max-width: 700px) {
+  #leaderboard { position: static; margin-top: 12px; width: 100%; }
+  h1 { font-size: 15px; letter-spacing: 1px; }
 }
