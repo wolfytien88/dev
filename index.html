@@ -12,6 +12,19 @@
   <div id="game">
     <canvas id="gameCanvas" width="400" height="400"></canvas>
     <div id="info">分數: <span id="score">0</span></div>
+    <div id="controls">
+      <button id="pauseBtn" aria-label="暫停">暫停</button>
+      <select id="speedSelect" aria-label="速度">
+        <option value="160">慢</option>
+        <option value="120" selected>普通</option>
+        <option value="70">快</option>
+      </select>
+      <button id="restartBtn" aria-label="重新開始">重新開始</button>
+    </div>
+    <aside id="leaderboard">
+      <h2>排行榜</h2>
+      <ol id="scoresList"></ol>
+    </aside>
   </div>
   <script src="script.js"></script>
 </body>

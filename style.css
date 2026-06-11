@@ -4,3 +4,15 @@ h1 { margin:0 0 12px; color:#ff6b81; text-shadow:0 6px 14px rgba(255,107,129,0.0
 canvas { background: linear-gradient(180deg,#fff,#fff8f2); box-shadow:0 10px 30px rgba(255,107,129,0.08); border-radius:14px; display:block; }
 #info { margin-top:10px; font-weight:700; color:#555; background:#fff; padding:8px 12px; border-radius:999px; box-shadow:0 6px 18px rgba(0,0,0,0.04); }
 #score { color:#ff6b81; }
+/* controls & leaderboard */
+#controls{ display:flex; gap:8px; align-items:center; margin-top:10px; }
+#controls button, #controls select{ background:#fff; border:2px solid #ffd6e0; padding:8px 12px; border-radius:12px; font-weight:700; color:#ff6b81; box-shadow:0 6px 18px rgba(255,107,129,0.06); cursor:pointer; }
+#controls select{ padding:6px 10px; }
+#leaderboard{ position:absolute; right:-160px; top:0; width:140px; background:linear-gradient(180deg,#fff7fb,#fff1f5); border-radius:12px; padding:12px; box-shadow:0 10px 30px rgba(255,107,129,0.06); }
+#leaderboard h2{ margin:0 0 8px; font-size:14px; color:#ff6b81; }
+#leaderboard ol{ margin:0; padding-left:18px; color:#7a466a; }
+#leaderboard li{ margin:4px 0; font-weight:700; }
+
+@media (max-width:700px){
+	#leaderboard{ position:static; margin-top:12px; width:100%; }
+}
